@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by ihgolab (http://jsbin.com/cecoqog/17/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Javascript - Színóra napszakakonként változó háttérrel">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet"> 
+  <title>Színóra</title>
+<style id="jsbin-css">
+* {
+   margin: 0;
+   padding: 0;
+}
+        
+html, body {
+  height: 100%;
+  background-position: center bottom;
+  position: relative;
+}
+        
+#clocksection {
+  width: 28rem;
+  height: 35vh;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 25px;
+}
+        
+#clock {
+  text-align: center;
+  position: relative;
+  top: 40%;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 4.5rem;
+ }
+</style>
+</head>
+<body>
+
+    <div id="clocksection">
+
+       <div id="clock">12:13:14</div>
+
+    </div>
+
+    
+   <script>
+  
+  
+  
+  </script> 
+
+
+<script id="jsbin-javascript">
+function colorClock() {
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+   if (hours <= 9) {
+     hours = '0' + hours;
+    }
+    if (minutes <= 9) {
+     minutes = '0' + minutes;
+    }
+    if (seconds <= 9) {
+     seconds = '0' + seconds;
+    }
+
+  var clockFace = hours + ':' + minutes + '.' + seconds;
+ 
+  var hexColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+          
+  document.getElementById('clock').innerHTML = clockFace;
+           
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+        document.getElementById("clocksection").style.backgroundColor = hexColor;
+        }
+
+colorClock();
+        
+    
+var today = new Date();
+        var hoursNow = today.getHours();
+        if (hoursNow < 6 || hoursNow >= 22) {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/7cehbfr.jpg')"; 
+        }
+        else if (hoursNow < 9) {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/h5PNV4u.jpg')"; }
+        else if (hoursNow < 20) {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/zRmYOJf.jpg')"; }
+        else {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/zRmYOJf.jpg')"; }
+  
+        
+</script>
+</body>
+</html>
